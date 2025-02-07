@@ -1,0 +1,6 @@
+@PhotoUpload_HostAddress = http://localhost:5063
+
+GET {{PhotoUpload_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
