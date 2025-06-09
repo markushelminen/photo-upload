@@ -1,1 +1,5 @@
 appsettings.local.json
+bin
+obj
+wwwroot
+obj/project.nuget.cache

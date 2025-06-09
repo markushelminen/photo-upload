@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{A6D5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoUpload", "backend\PhotoUpload\PhotoUpload.csproj", "{AB62DA95-74A8-4E5A-9FE5-5A47752F5869}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoUploadTests", "backend\PhotoUploadTests\PhotoUploadTests.csproj", "{D1EDBF56-850F-49D2-9CCA-04AF34DD416B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{AB62DA95-74A8-4E5A-9FE5-5A47752F5869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB62DA95-74A8-4E5A-9FE5-5A47752F5869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB62DA95-74A8-4E5A-9FE5-5A47752F5869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1EDBF56-850F-49D2-9CCA-04AF34DD416B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EDBF56-850F-49D2-9CCA-04AF34DD416B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EDBF56-850F-49D2-9CCA-04AF34DD416B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EDBF56-850F-49D2-9CCA-04AF34DD416B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AB62DA95-74A8-4E5A-9FE5-5A47752F5869} = {A6D5D513-90B1-46C4-9FA2-A214FA0CE491}
+		{D1EDBF56-850F-49D2-9CCA-04AF34DD416B} = {A6D5D513-90B1-46C4-9FA2-A214FA0CE491}
 	EndGlobalSection
 EndGlobal

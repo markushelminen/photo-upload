@@ -1,29 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import { UserNameContext } from "./context/username-context";
 import Upload from "./components/Upload/Upload";
 import PhotoView from "./components/PhotoView/PhotoView";
-import Username from "./components/Username/Username";
-
+export type Photo = {
+    photoName: string;
+    photoUri: string;
+};
+export const backendPort = import.meta.env.VITE_BACKEND_PORT;
 function App() {
-    const [username, setUsername] = useState("");
-
-    const newUsername = (name: string) => {
-        setUsername(name);
-    };
-
+    const [photos, setPhotos] = useState<Photo[]>([]);
+    useEffect(() => {
+        fetch(`http://localhost:${backendPort}/photos`)
+            .then((result) => {
+                return result.json();
+            })
+            .then((data) => {
+                setPhotos([...data]);
+            });
+    }, []);
     return (
         <>
             <h1>Photo upload</h1>
             <p>Upload your best photographs to the internet</p>
 
-            <Username newUsername={newUsername}></Username>
-            <UserNameContext.Provider value={username}>
-                <section id="main-content">
-                    <Upload></Upload>
-                    <PhotoView></PhotoView>
-                </section>
-            </UserNameContext.Provider>
+            <section id="main-content">
+                <Upload setPhotos={setPhotos} photos={photos}></Upload>
+                <PhotoView photos={photos}></PhotoView>
+            </section>
         </>
     );
 }

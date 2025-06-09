@@ -1,11 +1,15 @@
-import { ChangeEvent, useContext, useState } from "react";
-import { UserNameContext } from "../../context/username-context";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import "./Upload.css";
+import { backendPort, Photo } from "../../App";
 
-function Upload() {
+type UploadProps = {
+    photos: Photo[];
+    setPhotos: Dispatch<SetStateAction<Photo[]>>;
+};
+
+function Upload(props: UploadProps) {
     const [picture, setPicture] = useState<File | null>(null);
     const [previewURL, setPreviewURL] = useState<string>("");
-    const username = useContext(UserNameContext);
 
     const onPictureChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files === null) return;
@@ -17,30 +21,36 @@ function Upload() {
         if (picture === null) return;
         const formData = new FormData();
 
-        formData.append("picture", picture);
-        formData.append("username", username);
-
-        console.log(picture);
-
+        formData.append("Picture", picture);
         try {
-            const result = await fetch("https://httpbin.org/post", {
-                method: "POST",
-                body: formData,
-            });
+            const result = await fetch(
+                `http://localhost:${backendPort}/photo`,
+                {
+                    method: "POST",
+                    body: formData,
+                }
+            );
 
             const data = await result.json();
-
             console.log(data);
+            updatePhotos(data);
         } catch (error) {
             console.error(error);
         }
+    };
+
+    const updatePhotos = (data: Photo) => {
+        if (typeof data !== "string") {
+            props.setPhotos([...props.photos, data]);
+        }
+        setPicture(null);
     };
 
     const showPreview = () => {
         if (picture) {
             return (
                 <div>
-                    <h4>File Name: {picture.name}</h4>
+                    <p>File Name: {picture.name}</p>
                     <img
                         className="preview"
                         src={previewURL}
@@ -48,23 +58,16 @@ function Upload() {
                     />
                 </div>
             );
-        } else {
-            return (
-                <div>
-                    <br />
-                    <h4>Choose before Pressing the Upload button</h4>
-                </div>
-            );
         }
     };
     return (
-        <>
-            <h2>Upload</h2>
+        <div className="upload">
             <input
                 className="upload-input"
                 type="file"
                 name="pictures"
                 id="pictures"
+                accept=".png,.jpg,.jpeg"
                 onChange={onPictureChange}
             />
             {picture && showPreview()}
@@ -77,7 +80,7 @@ function Upload() {
                     Upload
                 </button>
             )}
-        </>
+        </div>
     );
 }
 export default Upload;

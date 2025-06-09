@@ -3,9 +3,15 @@
 }
 
 .upload-button {
+    margin-top: 1em;
     background-color: #666;
 }
 
 .upload-input {
+    font-size: medium;
     padding: 1em;
+}
+
+.upload {
+    padding: 2em;
 }

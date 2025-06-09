@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PhotoUpload")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8fab78cbbe5e82475a0499d9e8e0f8d5dd7fcadd")]
 [assembly: System.Reflection.AssemblyProductAttribute("PhotoUpload")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PhotoUpload")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

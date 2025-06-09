@@ -1,0 +1,7 @@
+.photoview {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    column-gap: 1em;
+    row-gap: 1em;
+}

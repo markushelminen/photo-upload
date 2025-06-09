@@ -1,54 +1,28 @@
 # Photo upload application
 
-all you need to add is the blob url and name to `appsetting.local.json`like this
+Configuration you need to add is the blob SAS url to `appsetting.local.json`like this
 
 ```json
 {
     "AzureBlobStorage": {
-        "Url": "<url here>",
-        "Name": "<name here>"
+        "Url": "<url here>"
     }
 }
 ```
 
-## Expanding the ESLint configuration
+and to `PhotoUploadTests.UnitTest1.cs`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+You should also configure the backend and frontend ports to `appsettings.json` and `.env` as shown in `.env.sample` file
 
--   Configure the top-level `parserOptions` property like this:
+To run the application navigate to `backend/PhotoUpload` and run
 
-```js
-export default tseslint.config({
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
+```
+dotnet run
 ```
 
--   Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
--   Optionally add `...tseslint.configs.stylisticTypeChecked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Then just navigate to `frontend/photo-upload` and run
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-    // Set the react version
-    settings: { react: { version: "18.3" } },
-    plugins: {
-        // Add the react plugin
-        react,
-    },
-    rules: {
-        // other rules...
-        // Enable its recommended rules
-        ...react.configs.recommended.rules,
-        ...react.configs["jsx-runtime"].rules,
-    },
-});
+```
+npm i
+npm run dev
 ```
