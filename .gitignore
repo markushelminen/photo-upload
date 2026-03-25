@@ -1,4 +1,4 @@
 backend/PhotoUpload/obj/project.nuget.cache
-backend/PhotoUploadTests/obj/
-backend/PhotoUploadTests/obj/*
-backend/PhotoUploadTests/obj/**
+backend/PhotoUploadTests/bin/
+backend/PhotoUploadTests/bin/*
+backend/PhotoUploadTests/bin/**
